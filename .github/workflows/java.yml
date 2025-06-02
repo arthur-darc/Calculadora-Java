@@ -20,7 +20,9 @@ jobs:
         java-version: '17'
 
     - name: Compilar projeto
-      run: javac -d bin $(find . -name "*.java")
+      run: |
+        mkdir -p bin
+        javac -d bin $(find . -name "*.java")
 
-    - name: Rodar testes
-      run: echo ./gradlew test
+    - name: Executar app
+      run: java -cp bin calc
