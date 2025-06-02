@@ -19,10 +19,8 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
 
-    - name: Compilar projeto
-      run: |
-        mkdir -p bin
-        javac -d bin $(find . -name "*.java")
-
-    - name: Executar app
-      run: java -cp bin calc
+    - name: run install, test, and build
+      run: 
+        npm install
+        npm run test
+        npm run build
